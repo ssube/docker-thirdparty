@@ -53,12 +53,26 @@ image:ansible:
     IMAGE_DIR: ansible
     IMAGE_TAG: apextoaster/ansible
 
+image:hugo:
+  <<: *image-job
+  stage: tool
+  variables:
+    IMAGE_DIR: hugo
+    IMAGE_TAG: apextoaster/hugo
+
 image:kube:
   <<: *image-job
   stage: tool
   variables:
     IMAGE_DIR: kube
     IMAGE_TAG: apextoaster/kube
+
+image:rclone:
+  <<: *image-job
+  stage: tool
+  variables:
+    IMAGE_DIR: rclone
+    IMAGE_TAG: apextoaster/rclone
 
 image:terraform:
   <<: *image-job
