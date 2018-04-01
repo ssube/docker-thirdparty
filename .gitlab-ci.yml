@@ -1,6 +1,7 @@
 stages:
   - base
-  - main
+  - lang
+  - tool
 
 variables:
   DOCKER_DRIVER: overlay2
@@ -18,19 +19,50 @@ variables:
     - ln -s /secrets/docker /root/.docker/config.json
     - docker info
   script:
-    - docker build -t ${IMAGE_TAG}:${CI_COMMIT_REF_SLUG} ${IMAGE_DIR}
+    - cd ${IMAGE_DIR}
+    - docker build -t ${IMAGE_TAG}:${CI_COMMIT_REF_SLUG} .
     - docker push ${IMAGE_TAG}
  
-build:base:
+image:base:
   <<: *image-job
   stage: base
   variables:
     IMAGE_DIR: base
     IMAGE_TAG: apextoaster/base
- 
-build:node:
+
+# lang images
+image:node:
   <<: *image-job
-  stage: main
+  stage: lang
   variables:
     IMAGE_DIR: node
     IMAGE_TAG: apextoaster/node
+
+.image:python:
+  <<: *image-job
+  stage: lang
+  variables:
+    IMAGE_DIR: python
+    IMAGE_TAG: apextoaster/python
+
+# tool images
+image:ansible:
+  <<: *image-job
+  stage: tool
+  variables:
+    IMAGE_DIR: ansible
+    IMAGE_TAG: apextoaster/ansible
+
+image:kube:
+  <<: *image-job
+  stage: tool
+  variables:
+    IMAGE_DIR: kube
+    IMAGE_TAG: apextoaster/kube
+
+image:terraform:
+  <<: *image-job
+  stage: terraform
+  variables:
+    IMAGE_DIR: terraform
+    IMAGE_TAG: apextoaster/terraform
