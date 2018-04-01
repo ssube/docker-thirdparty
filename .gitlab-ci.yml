@@ -39,7 +39,7 @@ image:node:
     IMAGE_DIR: node
     IMAGE_TAG: apextoaster/node
 
-.image:python:
+image:python:
   <<: *image-job
   stage: lang
   variables:
