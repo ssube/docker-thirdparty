@@ -32,6 +32,13 @@ image:base:
     IMAGE_TAG: apextoaster/base
 
 # lang images
+image:golang:
+  <<: *image-job
+  stage: lang
+  variables:
+    IMAGE_DIR: golang
+    IMAGE_TAG: apextoaster/golang
+
 image:node:
   <<: *image-job
   stage: lang
