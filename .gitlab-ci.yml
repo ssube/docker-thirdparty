@@ -62,7 +62,7 @@ image:kube:
 
 image:terraform:
   <<: *image-job
-  stage: terraform
+  stage: tool
   variables:
     IMAGE_DIR: terraform
     IMAGE_TAG: apextoaster/terraform
