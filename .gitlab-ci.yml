@@ -39,12 +39,12 @@ image:node:
     IMAGE_DIR: node
     IMAGE_TAG: apextoaster/node
 
-image:python:
+image:python3:
   <<: *image-job
   stage: lang
   variables:
-    IMAGE_DIR: python
-    IMAGE_TAG: apextoaster/python
+    IMAGE_DIR: python3
+    IMAGE_TAG: apextoaster/python3
 
 # tool images
 image:ansible:
