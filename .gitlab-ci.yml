@@ -22,6 +22,7 @@ variables:
   script:
     - cd ${IMAGE_DIR}
     - docker build -t ${IMAGE_TAG}:${CI_COMMIT_REF_SLUG} .
+    - docker run --rm -v $(pwd):/tests:ro --entrypoint /usr/local/bin/goss ${IMAGE_TAG} --gossfile /tests/Gossfile.yml validate
     - docker push ${IMAGE_TAG}
  
 image:base:
