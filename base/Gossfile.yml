@@ -1,5 +1,58 @@
 command:
-  goss -v:
+# main
+  "curl --version":
+    exit-status: 0
+    stdout:
+      - "curl 7.47.0 (x86_64-pc-linux-gnu)"
+  
+  "dig -v":
+    exit-status: 0
+    stderr:
+      - "DiG 9.10.3-P4-Ubuntu"
+
+  "git --version":
+    exit-status: 0
+    stdout:
+      - "git version 2.7.4"
+  
+  "jq --version":
+    exit-status: 0
+    stdout:
+      - "jq-1.5-1-a5b5cbe"
+
+  "unzip -v":
+    exit-status: 0
+    stdout:
+      - "UnZip 6.00 of 20 April 2009, by Debian."
+ 
+  "wget --version":
+    exit-status: 0
+    stdout:
+      - "GNU Wget 1.17.1 built on linux-gnu."
+ 
+  "zip -v":
+    exit-status: 0
+    stdout:
+      - "This is Zip 3.0 (July 5th 2008), by Info-ZIP."
+
+# blackbox (doesn't provide any good test commands)
+  "which blackbox_diff":
+    exit-status: 0
+    stdout:
+      - /usr/local/bin/blackbox_diff
+
+  "which blackbox_edit":
+    exit-status: 0
+    stdout:
+      - /usr/local/bin/blackbox_edit
+
+# goss
+  "goss -v":
     exit-status: 0
     stdout:
       - goss version v0.3.5
+
+# hash for tools that don't have a version
+files:
+  "/usr/bin/telnet":
+    sha256: d3379c3587823675a2324fefe702c25f52776bc47cab73d7c128e82426887583
