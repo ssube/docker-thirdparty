@@ -1,10 +1,10 @@
 FROM apextoaster/base:master
 
-RUN apt update \
- && apt install -y software-properties-common \
+RUN apt-get -qq update \
+ && apt-get install -y software-properties-common \
  && apt-add-repository ppa:ansible/ansible \
- && apt update \
- && apt install -y build-essential libssl-dev libffi-dev openssh-client python-dev python-pip \
- && pip install ansible
+ && apt-get -qq update \
+ && apt-get install -y build-essential libssl-dev libffi-dev openssh-client python-dev python-pip \
+ && rm -rf /var/lib/apt/lists/*
 
-CMD ansible-playbook
+RUN pip install ansible
