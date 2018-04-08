@@ -4,11 +4,6 @@ command:
     stdout:
       - "dep:"
       - " version     : v0.4.1"
-      - " build date  : 2018-01-24"
-      - " git hash    : 37d9ea0a"
-      - " go version  : go1.9.1"
-      - " go compiler : gc"
-      - " platform    : linux/amd64"
 
   go version:
     exit-status: 0
