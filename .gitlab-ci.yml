@@ -23,6 +23,7 @@ variables:
     - cd ${IMAGE_DIR}
     - docker build -t ${IMAGE_TAG}:${CI_COMMIT_REF_SLUG} .
     - IMAGE_HASH=$(docker images | grep ${IMAGE_TAG} | awk '{ print $3; }')
+    - 'echo "Testing image: ${IMAGE_HASH}"'
     - >-
       docker run --rm -v $(pwd):/tests:ro --entrypoint /usr/local/bin/goss
       ${IMAGE_HASH} --gossfile /tests/Gossfile.yml validate
