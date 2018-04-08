@@ -19,6 +19,7 @@ variables:
     - mkdir /root/.docker
     - ln -s /secrets/docker /root/.docker/config.json
     - docker info
+    - docker pull ${IMAGE_TAG}:${CI_COMMIT_REF_SLUG} || true
   script:
     - cd ${IMAGE_DIR}
     - docker build -t ${IMAGE_TAG}:${CI_COMMIT_REF_SLUG} .
