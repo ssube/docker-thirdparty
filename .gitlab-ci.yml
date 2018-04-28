@@ -58,7 +58,7 @@ image:node:
   variables:
     IMAGE_ROOT: node
     IMAGE_NAME: apextoaster/node
-    IMAGE_VERSION: "9"
+    IMAGE_VERSION: "9.11"
 
 image:python3:
   <<: *build-image
@@ -66,7 +66,7 @@ image:python3:
   variables:
     IMAGE_ROOT: python3
     IMAGE_NAME: apextoaster/python3
-    IMAGE_VERSION: "3"
+    IMAGE_VERSION: "3.5"
 
 # tool images
 image:ansible:
@@ -75,7 +75,7 @@ image:ansible:
   variables:
     IMAGE_ROOT: ansible
     IMAGE_NAME: apextoaster/ansible
-    IMAGE_VERSION: "2.5"
+    IMAGE_VERSION: "2.4"
 
 image:hugo:
   <<: *build-image

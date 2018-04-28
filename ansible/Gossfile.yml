@@ -2,41 +2,41 @@ command:
   ansible-config --version:
     exit-status: 0
     stdout:
-      - ansible-config 2.5.0
+      - ansible-config 2.4.0
 
   # ansible-connection?
 
   ansible-console --version:
     exit-status: 0
     stdout:
-      - ansible-console 2.5.0
+      - ansible-console 2.4.0
 
   ansible-doc --version:
     exit-status: 0
     stdout:
-      - ansible-doc 2.5.0
+      - ansible-doc 2.4.0
 
   ansible-galaxy --version:
     exit-status: 0
     stdout:
-      - ansible-galaxy 2.5.0
+      - ansible-galaxy 2.4.0
 
   ansible-inventory --version:
     exit-status: 0
     stdout:
-      - ansible-inventory 2.5.0
+      - ansible-inventory 2.4.0
 
   ansible-playbook --version:
     exit-status: 0
     stdout:
-      - ansible-playbook 2.5.0
+      - ansible-playbook 2.4.0
 
   ansible-pull --version:
     exit-status: 0
     stdout:
-      - ansible-pull 2.5.0
+      - ansible-pull 2.4.0
 
   ansible-vault --version:
     exit-status: 0
     stdout:
-      - ansible-vault 2.5.0
+      - ansible-vault 2.4.0
