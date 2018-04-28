@@ -1,4 +1,4 @@
-FROM apextoaster/base:master
+FROM apextoaster/base:1.0-master
 
 ENV KUBECTL_VERSION=1.9.6
 ENV KOPS_VERSION=1.8.1

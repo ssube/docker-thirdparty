@@ -1,4 +1,4 @@
-FROM apextoaster/base:master
+FROM apextoaster/base:1.0-master
 
 # Download and install node
 ENV NODE_VERSION 9.x

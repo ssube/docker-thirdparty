@@ -1,4 +1,4 @@
-FROM apextoaster/base:master
+FROM apextoaster/base:1.0-master
 
 ENV GO_VERSION 1.10.1
 ENV GOPATH /usr/local/go
