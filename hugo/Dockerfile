@@ -1,4 +1,4 @@
-FROM apextoaster/node:9.1-master
+FROM apextoaster/node:9.11-master
 
 RUN apt-get -qq update \
  && apt install -y build-essential ca-certificates curl git openssh-client python-pygments \
