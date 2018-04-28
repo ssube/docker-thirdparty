@@ -7,7 +7,7 @@ variables:
   DOCKER_DRIVER: overlay2
   DOCKER_HOST: tcp://localhost:2375
 
-.image: &image-job
+.build-image: &build-image
   image: docker
   services:
     - docker:dind
@@ -19,78 +19,92 @@ variables:
     - mkdir /root/.docker
     - ln -s /secrets/docker /root/.docker/config.json
     - docker info
-    # docker pull ${IMAGE_TAG}:${CI_COMMIT_REF_SLUG} || true
-  script:
-    - cd ${IMAGE_DIR}
-    - docker build -t ${IMAGE_TAG}:${CI_COMMIT_REF_SLUG} .
-    - IMAGE_HASH=$(docker images | grep ${IMAGE_TAG} | head -n 1 | awk '{ print $3; }')
+  script: # todo: move this into a real script
+    - cd ${IMAGE_ROOT}
+    - export IMAGE_TAG=${IMAGE_NAME}:${IMAGE_VERSION}-${CI_COMMIT_REF_SLUG}
+    - docker build -t ${IMAGE_TAG} .
+    - IMAGE_HASH=$(docker images | grep ${IMAGE_NAME} | head -n 1 | awk '{ print $3; }')
     - 'echo "Testing image: ${IMAGE_HASH}"'
     - >-
       docker run --rm -v $(pwd):/tests:ro --entrypoint /usr/local/bin/goss
       ${IMAGE_HASH} --gossfile /tests/Gossfile.yml validate
-    - docker push ${IMAGE_TAG}:${CI_COMMIT_REF_SLUG}
- 
+    - docker push ${IMAGE_TAG}
+    - >-
+      if [[ "${CI_COMMIT_REF_SLUG}" == "master" ]]; then
+      docker tag ${IMAGE_TAG} ${IMAGE_NAME}:${IMAGE_VERSION};
+      docker push ${IMAGE_NAME}:${IMAGE_VERSION};
+      fi
+
 image:base:
-  <<: *image-job
+  <<: *build-image
   stage: base
   variables:
-    IMAGE_DIR: base
-    IMAGE_TAG: apextoaster/base
+    IMAGE_ROOT: base
+    IMAGE_NAME: apextoaster/base
+    IMAGE_VERSION: "1.0"
 
 # lang images
 image:golang:
-  <<: *image-job
+  <<: *build-image
   stage: lang
   variables:
-    IMAGE_DIR: golang
-    IMAGE_TAG: apextoaster/golang
+    IMAGE_ROOT: golang
+    IMAGE_NAME: apextoaster/golang
+    IMAGE_VERSION: "1.10"
 
 image:node:
-  <<: *image-job
+  <<: *build-image
   stage: lang
   variables:
-    IMAGE_DIR: node
-    IMAGE_TAG: apextoaster/node
+    IMAGE_ROOT: node
+    IMAGE_NAME: apextoaster/node
+    IMAGE_VERSION: "9"
 
 image:python3:
-  <<: *image-job
+  <<: *build-image
   stage: lang
   variables:
-    IMAGE_DIR: python3
-    IMAGE_TAG: apextoaster/python3
+    IMAGE_ROOT: python3
+    IMAGE_NAME: apextoaster/python3
+    IMAGE_VERSION: "3"
 
 # tool images
 image:ansible:
-  <<: *image-job
+  <<: *build-image
   stage: tool
   variables:
-    IMAGE_DIR: ansible
-    IMAGE_TAG: apextoaster/ansible
+    IMAGE_ROOT: ansible
+    IMAGE_NAME: apextoaster/ansible
+    IMAGE_VERSION: "2.5"
 
 image:hugo:
-  <<: *image-job
+  <<: *build-image
   stage: tool
   variables:
-    IMAGE_DIR: hugo
-    IMAGE_TAG: apextoaster/hugo
+    IMAGE_ROOT: hugo
+    IMAGE_NAME: apextoaster/hugo
+    IMAGE_VERSION: "0.25"
 
 image:kube:
-  <<: *image-job
+  <<: *build-image
   stage: tool
   variables:
-    IMAGE_DIR: kube
-    IMAGE_TAG: apextoaster/kube
+    IMAGE_ROOT: kube
+    IMAGE_NAME: apextoaster/kube
+    IMAGE_VERSION: "1.9"
 
 image:rclone:
-  <<: *image-job
+  <<: *build-image
   stage: tool
   variables:
-    IMAGE_DIR: rclone
-    IMAGE_TAG: apextoaster/rclone
+    IMAGE_ROOT: rclone
+    IMAGE_NAME: apextoaster/rclone
+    IMAGE_VERSION: "1.39"
 
 image:terraform:
-  <<: *image-job
+  <<: *build-image
   stage: tool
   variables:
-    IMAGE_DIR: terraform
-    IMAGE_TAG: apextoaster/terraform
+    IMAGE_ROOT: terraform
+    IMAGE_NAME: apextoaster/terraform
+    IMAGE_VERSION: "0.11"
