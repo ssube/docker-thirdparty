@@ -1,5 +1,5 @@
 command:
-  node:
+  "node --version":
     exit-status: 0
     stdout:
       - "v10.1"
