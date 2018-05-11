@@ -1,4 +1,5 @@
-matching:
-  has_true:
-    content: "true"
-    matches: "true"
+command:
+  node:
+    exit-status: 0
+    stdout:
+      - "v10.1"
