@@ -1,6 +1,7 @@
 FROM ubuntu:16.04
 
 ENV GOSS_VERSION 0.3.5
+ENV TEST_VERSION 0.1.4
 
 # install main packages and clean up
 RUN apt-get -qq update \
@@ -18,6 +19,10 @@ RUN git clone https://github.com/StackExchange/blackbox.git blackbox \
 # install goss
 RUN curl -L https://github.com/aelsabbahy/goss/releases/download/v${GOSS_VERSION}/goss-linux-amd64 -o /usr/local/bin/goss \
  && chmod +rx /usr/local/bin/goss
+
+# install codeclimate test-reporter
+RUN curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-${TEST_VERSION}-linux-amd64 -o /usr/local/bin/test-reporter \
+ && chmod +rx /usr/local/bin/test-reporter
 
 # Add ssh keys
 RUN mkdir -p /root/.ssh \

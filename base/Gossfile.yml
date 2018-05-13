@@ -52,6 +52,12 @@ command:
     stdout:
       - goss version v0.3.5
 
+# codeclimate test-reporter
+  "test-reporter -v":
+    exit-status: 0
+    stdout:
+      - "Code Climate Test Reporter 0.1.4"
+
 # hash for tools that don't have a version
 files:
   "/usr/bin/telnet":
