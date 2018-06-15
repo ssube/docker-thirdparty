@@ -1,0 +1,5 @@
+command:
+  "java -jar /usr/bin/bfg.jar --version":
+    exit-status: 0
+    stdout:
+      - "bfg 1.13.0"

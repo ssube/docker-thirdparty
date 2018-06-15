@@ -77,6 +77,14 @@ image:ansible:
     IMAGE_NAME: apextoaster/ansible
     IMAGE_VERSION: "2.4"
 
+image:bfg:
+  <<: *build-image
+  stage: tool
+  variables:
+    IMAGE_ROOT: bfg
+    IMAGE_NAME: apextoaster/bfg
+    IMAGE_VERSION: "1.13"
+
 image:hugo:
   <<: *build-image
   stage: tool
