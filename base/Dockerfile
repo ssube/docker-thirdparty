@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:bionic
 
 ENV GOSS_VERSION 0.3.5
 ENV TEST_VERSION 0.1.4
@@ -6,10 +6,12 @@ ENV TEST_VERSION 0.1.4
 # install main packages and clean up
 RUN apt-get -qq update \
  && apt-get install -y build-essential ca-certificates curl dnsutils git jq openssh-client python-dev python-pip ssh telnet unzip wget zip \
- && pip install --upgrade pip awscli yq \
  && apt-get clean -y \
  && apt-get autoclean -y \
  && rm -rf /var/lib/apt/lists/*
+
+# install pip packages
+RUN pip install --upgrade pip awscli yq
 
 # install blackbox (master)
 RUN git clone https://github.com/StackExchange/blackbox.git blackbox \
