@@ -3,17 +3,17 @@ command:
   "curl --version":
     exit-status: 0
     stdout:
-      - "curl 7.47.0 (x86_64-pc-linux-gnu)"
+      - "curl 7.58.0 (x86_64-pc-linux-gnu)"
   
   "dig -v":
     exit-status: 0
     stderr:
-      - "DiG 9.10.3-P4-Ubuntu"
+      - "DiG 9.11.3-1ubuntu1.1-Ubuntu"
 
   "git --version":
     exit-status: 0
     stdout:
-      - "git version 2.7.4"
+      - "git version 2.17.1"
   
   "jq --version":
     exit-status: 0
@@ -28,7 +28,7 @@ command:
   "wget --version":
     exit-status: 0
     stdout:
-      - "GNU Wget 1.17.1 built on linux-gnu."
+      - "GNU Wget 1.19.4 built on linux-gnu."
  
   "zip -v":
     exit-status: 0
