@@ -13,7 +13,6 @@ variables:
     - docker:dind
   tags:
     - runner:k8s
-    - cloud:aws
   before_script:
     # prep secrets
     - mkdir /root/.docker
