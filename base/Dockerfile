@@ -15,7 +15,7 @@ RUN apt-get -qq update \
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py \
  && python get-pip.py \
  && pip install --upgrade pip
-RUN pip install awscli openshift yq
+RUN pip install --upgrade awscli openshift yq
 
 # install blackbox (master)
 RUN git clone https://github.com/StackExchange/blackbox.git blackbox \
