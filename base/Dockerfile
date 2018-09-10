@@ -5,13 +5,16 @@ ENV TEST_VERSION 0.1.4
 
 # install main packages and clean up
 RUN apt-get -qq update \
- && apt-get install -y build-essential ca-certificates curl dnsutils git jq openssh-client python-dev python-pip ssh telnet unzip wget zip \
+ && apt-get install -y build-essential ca-certificates curl dnsutils git jq openssh-client python-dev ssh telnet unzip wget zip \
+ && apt-get remove -y python-pip \
  && apt-get clean -y \
  && apt-get autoclean -y \
  && rm -rf /var/lib/apt/lists/*
 
 # install pip packages
-RUN pip install --upgrade pip
+RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py \
+ && python get-pip.py \
+ && pip install --upgrade pip
 RUN pip install awscli openshift yq
 
 # install blackbox (master)
