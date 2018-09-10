@@ -11,7 +11,7 @@ RUN apt-get -qq update \
  && rm -rf /var/lib/apt/lists/*
 
 # install pip packages
-RUN pip install --upgrade
+RUN pip install --upgrade pip
 RUN pip install awscli openshift yq
 
 # install blackbox (master)
