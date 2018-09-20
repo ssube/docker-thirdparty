@@ -15,8 +15,8 @@ variables:
     - runner:k8s
   before_script:
     # prep secrets
-    - mkdir /root/.docker
-    - ln -s /secrets/docker /root/.docker/config.json
+    - mkdir ${HOME}/.docker
+    - echo "${DOCKER_SECRET}" | base64 -d > ${HOME}/.docker/config.json
     - docker info
   script: # todo: move this into a real script
     - cd ${IMAGE_ROOT}
