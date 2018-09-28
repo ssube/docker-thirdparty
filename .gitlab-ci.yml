@@ -74,7 +74,7 @@ image:ansible:
   variables:
     IMAGE_ROOT: ansible
     IMAGE_NAME: apextoaster/ansible
-    IMAGE_VERSION: "2.4"
+    IMAGE_VERSION: "2.6"
 
 image:bfg:
   <<: *build-image
