@@ -22,7 +22,7 @@ ENV KUBECTL_VERSION=1.11.3
 
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl \
  && mv -v kubectl /usr/local/bin/ \
- && chmod a+x /usr/local/bin/kubectl \
+ && chmod a+x /usr/local/bin/kubectl
 
 # install blackbox (master)
 RUN git clone https://github.com/StackExchange/blackbox.git blackbox \
