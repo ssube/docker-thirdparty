@@ -1,4 +1,4 @@
-FROM apextoaster/base:1.1-master
+FROM apextoaster/base:1.2-master
 
 RUN apt-get -qq update \
  && apt-get install -y software-properties-common \

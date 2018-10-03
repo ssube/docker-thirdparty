@@ -35,6 +35,12 @@ command:
     stdout:
       - "Zip 3.0"
 
+  "kubectl version --client":
+    exit-status: 0
+    stdout:
+      - |
+        Client Version: Major:"1", Minor:"11", GitVersion:"v1.11.3"
+
 # blackbox (doesn't provide any good test commands)
   "which blackbox_diff":
     exit-status: 0

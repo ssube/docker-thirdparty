@@ -1,4 +1,4 @@
-FROM apextoaster/base:1.0-master
+FROM apextoaster/base:1.2-master
 
 ENV RCLONE_VERSION=1.39
 

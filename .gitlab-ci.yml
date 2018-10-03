@@ -40,7 +40,7 @@ image:base:
   variables:
     IMAGE_ROOT: base
     IMAGE_NAME: apextoaster/base
-    IMAGE_VERSION: "1.1"
+    IMAGE_VERSION: "1.2"
 
 # lang images
 image:golang:
@@ -91,14 +91,6 @@ image:hugo:
     IMAGE_ROOT: hugo
     IMAGE_NAME: apextoaster/hugo
     IMAGE_VERSION: "0.25"
-
-image:kube:
-  <<: *build-image
-  stage: tool
-  variables:
-    IMAGE_ROOT: kube
-    IMAGE_NAME: apextoaster/kube
-    IMAGE_VERSION: "1.9"
 
 image:rclone:
   <<: *build-image

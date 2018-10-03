@@ -1,4 +1,4 @@
-FROM apextoaster/base:1.0-master
+FROM apextoaster/base:1.2-master
 
 # install jdk
 RUN apt update -qq \
