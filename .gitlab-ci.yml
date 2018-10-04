@@ -1,7 +1,8 @@
 stages:
   - base
-  - lang
+  - language
   - tool
+  - service
 
 variables:
   DOCKER_DRIVER: overlay2
@@ -42,10 +43,10 @@ image:base:
     IMAGE_NAME: apextoaster/base
     IMAGE_VERSION: "1.2"
 
-# lang images
+# language images
 image:golang:
   <<: *build-image
-  stage: lang
+  stage: language
   variables:
     IMAGE_ROOT: golang
     IMAGE_NAME: apextoaster/golang
@@ -53,7 +54,7 @@ image:golang:
 
 image:node:
   <<: *build-image
-  stage: lang
+  stage: language
   variables:
     IMAGE_ROOT: node
     IMAGE_NAME: apextoaster/node
@@ -61,7 +62,7 @@ image:node:
 
 image:python3:
   <<: *build-image
-  stage: lang
+  stage: language
   variables:
     IMAGE_ROOT: python3
     IMAGE_NAME: apextoaster/python3
@@ -107,3 +108,12 @@ image:terraform:
     IMAGE_ROOT: terraform
     IMAGE_NAME: apextoaster/terraform
     IMAGE_VERSION: "0.11"
+
+# service images
+image:nexus:
+  <<: *build-image
+  stage: service
+  variables:
+    IMAGE_ROOT: nexus
+    IMAGE_NAME: apextoaster/nexus
+    IMAGE_VERSION: "3.13"
