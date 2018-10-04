@@ -6,7 +6,7 @@ ADD https://github.com/ncw/rclone/releases/download/v${RCLONE_VERSION}/rclone-v$
 
 USER root
 RUN yum update -y \
- && yum install -y build-essential ca-certificates unzip \
+ && yum install -y build-essential ca-certificates gzip gunzip pigz unzip \
  && cd /tmp \
  && unzip /tmp/rclone.zip \
  && mv -v /tmp/rclone-v${RCLONE_VERSION}-linux-amd64/rclone /usr/bin/rclone
