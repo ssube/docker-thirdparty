@@ -2,7 +2,7 @@ FROM apextoaster/base:1.2-master
 
 # install jdk
 RUN apt update -qq \
- && apt-get install -y openjdk-9-jre-headless \
+ && apt-get install -y openjdk-11-jre-headless \
  && rm -rf /var/lib/apt/lists/*
 
 ENV BFG_VERSION 1.13.0
