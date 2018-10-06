@@ -1,3 +1,5 @@
+FROM apextoaster/base:1.1-master
+
 FROM sonatype/nexus3:3.13.0
 
 ENV RCLONE_VERSION=1.39
@@ -10,5 +12,7 @@ RUN yum update -y \
  && cd /tmp \
  && unzip /tmp/rclone.zip \
  && mv -v /tmp/rclone-v${RCLONE_VERSION}-linux-amd64/rclone /usr/bin/rclone
+
+COPY --from=0 /usr/local/bin/goss /usr/local/bin/goss
 
 USER nexus
