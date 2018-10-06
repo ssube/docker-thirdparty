@@ -14,7 +14,6 @@ variables:
     - docker:stable-dind
   tags:
     - runner:k8s
-  when: manual
   allow_failure: false
 
   before_script:
