@@ -15,6 +15,10 @@ variables:
   tags:
     - runner:k8s
   when: manual
+  allow_failure: false
+  only:
+    changes:
+      - ${IMAGE_ROOT}/Dockerfile
 
   before_script:
     # prep secrets
