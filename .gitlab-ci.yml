@@ -42,6 +42,9 @@ variables:
 image:base:
   <<: *build-image
   stage: base
+  only:
+    changes:
+      - base/Dockerfile
   variables:
     IMAGE_ROOT: base
     IMAGE_NAME: apextoaster/base
@@ -51,6 +54,9 @@ image:base:
 image:golang:
   <<: *build-image
   stage: language
+  only:
+    changes:
+      - golang/Dockerfile
   variables:
     IMAGE_ROOT: golang
     IMAGE_NAME: apextoaster/golang
@@ -59,6 +65,9 @@ image:golang:
 image:node:
   <<: *build-image
   stage: language
+  only:
+    changes:
+      - node/Dockerfile
   variables:
     IMAGE_ROOT: node
     IMAGE_NAME: apextoaster/node
@@ -67,6 +76,9 @@ image:node:
 image:python3:
   <<: *build-image
   stage: language
+  only:
+    changes:
+      - python3/Dockerfile
   variables:
     IMAGE_ROOT: python3
     IMAGE_NAME: apextoaster/python3
@@ -76,6 +88,9 @@ image:python3:
 image:ansible:
   <<: *build-image
   stage: tool
+  only:
+    changes:
+      - ansible/Dockerfile
   variables:
     IMAGE_ROOT: ansible
     IMAGE_NAME: apextoaster/ansible
@@ -84,6 +99,9 @@ image:ansible:
 image:bfg:
   <<: *build-image
   stage: tool
+  only:
+    changes:
+      - bfg/Dockerfile
   variables:
     IMAGE_ROOT: bfg
     IMAGE_NAME: apextoaster/bfg
@@ -92,6 +110,9 @@ image:bfg:
 image:hugo:
   <<: *build-image
   stage: tool
+  only:
+    changes:
+      - hugo/Dockerfile
   variables:
     IMAGE_ROOT: hugo
     IMAGE_NAME: apextoaster/hugo
@@ -100,6 +121,9 @@ image:hugo:
 image:rclone:
   <<: *build-image
   stage: tool
+  only:
+    changes:
+      - rclone/Dockerfile
   variables:
     IMAGE_ROOT: rclone
     IMAGE_NAME: apextoaster/rclone
@@ -108,6 +132,9 @@ image:rclone:
 image:shellcheck:
   <<: *build-image
   stage: tool
+  only:
+    changes:
+      - shellcheck/Dockerfile
   variables:
     IMAGE_ROOT: shellcheck
     IMAGE_NAME: apextoaster/shellcheck
@@ -116,6 +143,9 @@ image:shellcheck:
 image:terraform:
   <<: *build-image
   stage: tool
+  only:
+    changes:
+      - terraform/Dockerfile
   variables:
     IMAGE_ROOT: terraform
     IMAGE_NAME: apextoaster/terraform
@@ -125,6 +155,9 @@ image:terraform:
 image:nexus:
   <<: *build-image
   stage: service
+  only:
+    changes:
+      - nexus/Dockerfile
   variables:
     IMAGE_ROOT: nexus
     IMAGE_NAME: apextoaster/nexus
