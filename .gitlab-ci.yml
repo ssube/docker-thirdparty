@@ -105,6 +105,14 @@ image:rclone:
     IMAGE_NAME: apextoaster/rclone
     IMAGE_VERSION: "1.39"
 
+image:shellcheck:
+  <<: *build-image
+  stage: tool
+  variables:
+    IMAGE_ROOT: shellcheck
+    IMAGE_NAME: apextoaster/shellcheck
+    IMAGE_VERSION: "0.4"
+
 image:terraform:
   <<: *build-image
   stage: tool

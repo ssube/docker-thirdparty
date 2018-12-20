@@ -1,0 +1,5 @@
+command:
+  shellcheck -V:
+    exit-status: 0
+    stdout:
+      - version: 0.4.6
