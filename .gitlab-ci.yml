@@ -107,6 +107,17 @@ image:bfg:
     IMAGE_NAME: apextoaster/bfg
     IMAGE_VERSION: "1.13"
 
+image:code-climate:
+  <<: *build-image
+  stage: tool
+  only:
+    changes:
+      - code-climate/Dockerfile
+  variables:
+    IMAGE_ROOT: code-climate
+    IMAGE_NAME: apextoaster/code-climate
+    IMAGE_VERSION: "0.6"
+
 image:hugo:
   <<: *build-image
   stage: tool

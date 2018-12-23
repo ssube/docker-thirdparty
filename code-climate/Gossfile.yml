@@ -1,0 +1,5 @@
+command:
+  "cc-test-reporter -v":
+    exit-status: 0
+    stdout:
+      - "Code Climate Test Reporter 0.6.3"
