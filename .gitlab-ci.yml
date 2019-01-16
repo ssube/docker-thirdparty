@@ -127,7 +127,7 @@ image:codecov:
   variables:
     IMAGE_ROOT: codecov
     IMAGE_NAME: apextoaster/codecov
-    IMAGE_VERSION: "8a28df4"
+    IMAGE_VERSION: "3.1"
 
 image:hugo:
   <<: *build-image
