@@ -118,6 +118,17 @@ image:code-climate:
     IMAGE_NAME: apextoaster/code-climate
     IMAGE_VERSION: "0.6"
 
+image:codecov:
+  <<: *build-image
+  stage: tool
+  only:
+    changes:
+      - codecov/Dockerfile
+  variables:
+    IMAGE_ROOT: codecov
+    IMAGE_NAME: apextoaster/codecov
+    IMAGE_VERSION: "8a28df4"
+
 image:hugo:
   <<: *build-image
   stage: tool
@@ -128,6 +139,17 @@ image:hugo:
     IMAGE_ROOT: hugo
     IMAGE_NAME: apextoaster/hugo
     IMAGE_VERSION: "0.25"
+
+image:licensed:
+  <<: *build-image
+  stage: tool
+  only:
+    changes:
+      - licensed/Dockerfile
+  variables:
+    IMAGE_ROOT: licensed
+    IMAGE_NAME: apextoaster/licensed
+    IMAGE_VERSION: "1.5.2"
 
 image:rclone:
   <<: *build-image
