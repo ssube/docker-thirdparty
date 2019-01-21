@@ -1,4 +1,4 @@
-FROM apextoaster/base:1.2-master
+FROM apextoaster/node:10.1-master
 
 # install main packages and clean up
 RUN apt-get -qq update \
