@@ -173,6 +173,17 @@ image:shellcheck:
     IMAGE_NAME: apextoaster/shellcheck
     IMAGE_VERSION: "0.4"
 
+image:sonar-scanner:
+  <<: *build-image
+  stage: tool
+  only:
+    changes:
+      - sonar-scanner/Dockerfile
+  variables:
+    IMAGE_ROOT: sonar-scanner
+    IMAGE_NAME: apextoaster/sonar-scanner
+    IMAGE_VERSION: "3.3"
+
 image:terraform:
   <<: *build-image
   stage: tool

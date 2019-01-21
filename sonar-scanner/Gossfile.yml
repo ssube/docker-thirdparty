@@ -1,0 +1,6 @@
+command:
+  sonar-scanner:
+    exit-status: 0
+    stdout:
+      - "INFO: SonarQube Scanner 3.3.0.1492"
+      - "INFO: Java 1.8.0_191 Oracle Corporation (64-bit)"
