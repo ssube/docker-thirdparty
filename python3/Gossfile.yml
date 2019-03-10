@@ -1,4 +1,4 @@
 matching:
-  has_true:
-    content: "true"
-    matches: "true"
+  "python --version":
+    stdout:
+      - Python 3.7

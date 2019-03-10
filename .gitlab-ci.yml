@@ -151,6 +151,17 @@ image:licensed:
     IMAGE_NAME: apextoaster/licensed
     IMAGE_VERSION: "1.5.2"
 
+image:luigi-server:
+  <<: *build-image
+  stage: tool
+  only:
+    changes:
+      - luigi-server/Dockerfile
+  variables:
+    IMAGE_ROOT: luigi-server
+    IMAGE_NAME: apextoaster/luigi-server
+    IMAGE_VERSION: "2.8"
+
 image:rclone:
   <<: *build-image
   stage: tool

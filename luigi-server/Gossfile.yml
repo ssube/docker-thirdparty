@@ -1,0 +1,4 @@
+command:
+  "luigid --help":
+    stdout:
+      - "Central luigi server"
