@@ -1,4 +1,4 @@
-matching:
+command:
   "python --version":
     stdout:
       - Python 3.7
