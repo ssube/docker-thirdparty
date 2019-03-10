@@ -82,7 +82,7 @@ image:python3:
   variables:
     IMAGE_ROOT: python3
     IMAGE_NAME: apextoaster/python3
-    IMAGE_VERSION: "3.5"
+    IMAGE_VERSION: "3.6"
 
 # tool images
 image:ansible:
