@@ -10,6 +10,6 @@ RUN pip install \
 EXPOSE 8082/TCP
 
 ENV LUIGI_CONFIG_DIR /etc/luigi/
-ENV LUIGI_CONFIG_PATH /etc/luigi/luigid.conf
+ENV LUIGI_CONFIG_PATH /etc/luigi/luigid.cfg
 
 ENTRYPOINT luigid
