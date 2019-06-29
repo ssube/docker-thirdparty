@@ -1,4 +1,5 @@
-matching:
-  has_true:
-    content: "true"
-    matches: "true"
+command:
+  "python3 --version":
+    exit-status: 0
+    stdout:
+      - "Python 3.6"
