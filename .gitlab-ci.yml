@@ -9,11 +9,12 @@ variables:
   DOCKER_HOST: tcp://localhost:2375
 
 .build-image: &build-image
-  image: docker:stable
+  image: docker:18.09.9
   services:
-    - docker:stable-dind
+    - docker:18.09.9-dind
   tags:
-    - runner:k8s
+    - platform:k8s
+    - runner:shared
   allow_failure: false
 
   before_script:
