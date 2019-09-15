@@ -1,11 +1,11 @@
-FROM apextoaster/node:9.11-master
+FROM apextoaster/node:11.15-master
 
 RUN apt-get -qq update \
  && apt install -y build-essential ca-certificates curl git openssh-client python-pygments \
  && rm -rf /var/lib/apt/lists/*
 
 # Download and install hugo
-ENV HUGO_VERSION 0.25.1
+ENV HUGO_VERSION 0.58.1
 ENV HUGO_BINARY hugo_${HUGO_VERSION}_Linux-64bit.deb
 
 ADD https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY} /tmp/hugo.deb

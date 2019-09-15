@@ -138,7 +138,7 @@ image:hugo:
   variables:
     IMAGE_ROOT: hugo
     IMAGE_NAME: apextoaster/hugo
-    IMAGE_VERSION: "0.25"
+    IMAGE_VERSION: "0.58"
 
 image:licensed:
   <<: *build-image
