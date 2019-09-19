@@ -1,5 +1,0 @@
-command:
-  "luigid --help":
-    exit-status: 0
-    stdout:
-      - "Central luigi server"
