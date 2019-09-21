@@ -10,6 +10,6 @@ RUN curl -fL -o /usr/local/bin/dind "https://raw.githubusercontent.com/moby/moby
 COPY entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
-#VOLUME /var/lib/docker
+VOLUME /var/lib/docker
 EXPOSE 2375
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
