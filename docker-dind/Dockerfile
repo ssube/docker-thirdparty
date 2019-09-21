@@ -1,7 +1,6 @@
 FROM apextoaster/base:1.2-master
 
 # docker itself
-
 ARG DOCKER_CHANNEL=stable
 ARG DOCKER_VERSION=18.09.9
 
@@ -19,19 +18,19 @@ RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubunt
    $(lsb_release -cs) \
    ${DOCKER_CHANNEL}"
 RUN apt-get update \
- && apt-get install -y --no-install-recommends docker-ce=5:${DOCKER_VERSION}~3-0~ubuntu-bionic \
+ && apt-get install -y --no-install-recommends \
+   docker-ce=5:${DOCKER_VERSION}~3-0~ubuntu-bionic \
+   docker-ce-cli=5:${DOCKER_VERSION}~3-0~ubuntu-bionic \
  && rm -rf /var/lib/apt/lists/*
 
 RUN docker -v \
  && dockerd -v
 
 # dind hacks
-
 ARG DIND_COMMIT=master
 ENV DOCKER_EXTRA_OPTS '--storage-driver=overlay2'
-RUN curl -fL -o /usr/local/bin/dind "https://raw.githubusercontent.com/moby/moby/${DIND_COMMIT}/hack/dind" && \
-	chmod +x /usr/local/bin/dind
-
+RUN curl -fL -o /usr/local/bin/dind "https://raw.githubusercontent.com/moby/moby/${DIND_COMMIT}/hack/dind" \
+ && chmod +x /usr/local/bin/dind
 
 # entrypoint
 COPY entrypoint.sh /usr/local/bin/
