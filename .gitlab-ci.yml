@@ -45,6 +45,7 @@ image:base:
   stage: base
   only:
     changes:
+      - .gitlab-ci.yml
       - base/Dockerfile
   variables:
     IMAGE_ROOT: base
@@ -57,6 +58,7 @@ image:golang:
   stage: language
   only:
     changes:
+      - .gitlab-ci.yml
       - golang/Dockerfile
   variables:
     IMAGE_ROOT: golang
@@ -68,6 +70,7 @@ image:node:
   stage: language
   only:
     changes:
+      - .gitlab-ci.yml
       - node/Dockerfile
   variables:
     IMAGE_ROOT: node
@@ -79,6 +82,7 @@ image:python3:
   stage: language
   only:
     changes:
+      - .gitlab-ci.yml
       - python3/Dockerfile
   variables:
     IMAGE_ROOT: python3
@@ -91,6 +95,7 @@ image:ansible:
   stage: tool
   only:
     changes:
+      - .gitlab-ci.yml
       - ansible/Dockerfile
   variables:
     IMAGE_ROOT: ansible
@@ -102,6 +107,7 @@ image:bfg:
   stage: tool
   only:
     changes:
+      - .gitlab-ci.yml
       - bfg/Dockerfile
   variables:
     IMAGE_ROOT: bfg
@@ -113,6 +119,7 @@ image:code-climate:
   stage: tool
   only:
     changes:
+      - .gitlab-ci.yml
       - code-climate/Dockerfile
   variables:
     IMAGE_ROOT: code-climate
@@ -124,21 +131,23 @@ image:codecov:
   stage: tool
   only:
     changes:
+      - .gitlab-ci.yml
       - codecov/Dockerfile
   variables:
     IMAGE_ROOT: codecov
     IMAGE_NAME: apextoaster/codecov
     IMAGE_VERSION: "3.1"
 
-image:docker-dind:
+image:docker:
   <<: *build-image
   stage: tool
   only:
     changes:
-      - docker-dind/Dockerfile
+      - .gitlab-ci.yml
+      - docker/Dockerfile
   variables:
-    IMAGE_ROOT: docker-dind
-    IMAGE_NAME: apextoaster/docker-dind
+    IMAGE_ROOT: docker
+    IMAGE_NAME: apextoaster/docker
     IMAGE_VERSION: "18.09"
 
 image:hugo:
@@ -146,6 +155,7 @@ image:hugo:
   stage: tool
   only:
     changes:
+      - .gitlab-ci.yml
       - hugo/Dockerfile
   variables:
     IMAGE_ROOT: hugo
@@ -157,6 +167,7 @@ image:licensed:
   stage: tool
   only:
     changes:
+      - .gitlab-ci.yml
       - licensed/Dockerfile
   variables:
     IMAGE_ROOT: licensed
@@ -168,6 +179,7 @@ image:rclone:
   stage: tool
   only:
     changes:
+      - .gitlab-ci.yml
       - rclone/Dockerfile
   variables:
     IMAGE_ROOT: rclone
@@ -179,6 +191,7 @@ image:shellcheck:
   stage: tool
   only:
     changes:
+      - .gitlab-ci.yml
       - shellcheck/Dockerfile
   variables:
     IMAGE_ROOT: shellcheck
@@ -190,6 +203,7 @@ image:sonar-scanner:
   stage: tool
   only:
     changes:
+      - .gitlab-ci.yml
       - sonar-scanner/Dockerfile
   variables:
     IMAGE_ROOT: sonar-scanner
@@ -201,6 +215,7 @@ image:terraform:
   stage: tool
   only:
     changes:
+      - .gitlab-ci.yml
       - terraform/Dockerfile
   variables:
     IMAGE_ROOT: terraform
@@ -208,11 +223,24 @@ image:terraform:
     IMAGE_VERSION: "0.11"
 
 # service images
+image:docker-dind:
+  <<: *build-image
+  stage: service
+  only:
+    changes:
+      - .gitlab-ci.yml
+      - docker-dind/Dockerfile
+  variables:
+    IMAGE_ROOT: docker-dind
+    IMAGE_NAME: apextoaster/docker-dind
+    IMAGE_VERSION: "18.09"
+
 image:nexus:
   <<: *build-image
   stage: service
   only:
     changes:
+      - .gitlab-ci.yml
       - nexus/Dockerfile
   variables:
     IMAGE_ROOT: nexus

@@ -1,5 +1,4 @@
-command:
-  "docker --version":
-     exit-status: 0
-     stdout:
-       - "18.09"
+matching:
+  has_true:
+    content: "true"
+    matches: "true"
