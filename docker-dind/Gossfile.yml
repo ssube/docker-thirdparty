@@ -1,0 +1,5 @@
+command:
+  "docker --version":
+     exit-status: 0
+     stdout:
+       - "18.09"
