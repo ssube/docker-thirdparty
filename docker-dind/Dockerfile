@@ -7,7 +7,7 @@ RUN set -eux; \
 
 ENV ENTRY_COMMIT 92d278e671f32a9ee4a3c0668e46a41f4a3b74b0
 RUN set -eux; \
-  wget -O /usr/local/bin/dockerd-entrypoint.sh "https://raw.githubusercontent.com/docker-library/docker/${ENTRY_COMMIT}/18.09/docker-entrypoint.sh"; \
+  wget -O /usr/local/bin/dockerd-entrypoint.sh "https://raw.githubusercontent.com/docker-library/docker/${ENTRY_COMMIT}/18.09/dind/dockerd-entrypoint.sh"; \
   chmod +x /usr/local/bin/dockerd-entrypoint.sh
 
 VOLUME /var/lib/docker
