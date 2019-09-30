@@ -1,6 +1,6 @@
 FROM apextoaster/base:1.2-master
 
-FROM sonatype/nexus3:3.13.0
+FROM sonatype/nexus3:3.19.0
 
 ENV RCLONE_VERSION=1.39
 
