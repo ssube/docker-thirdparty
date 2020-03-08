@@ -2,4 +2,4 @@ command:
   ansible-playbook --version:
     exit-status: 0
     stdout:
-      - ansible-playbook 2.6
+      - ansible-playbook 2.7

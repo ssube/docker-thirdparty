@@ -7,4 +7,4 @@ command:
   codecov-bash --help:
     exit-status: 0
     stdout:
-      - "Codecov Bash 8a28df4"
+      - "Codecov Bash 20200303-bc4d7e6"
