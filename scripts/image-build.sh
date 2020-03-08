@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/sh
 
 cd ${IMAGE_ROOT}
 export IMAGE_TAG="${IMAGE_NAME}:${IMAGE_VERSION}-${CI_COMMIT_REF_SLUG}"
