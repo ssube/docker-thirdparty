@@ -4,6 +4,7 @@ set -euxo pipefail
 
 cd ${IMAGE_ROOT}
 export IMAGE_TAG="${IMAGE_NAME}:${IMAGE_VERSION}-${CI_COMMIT_REF_SLUG}"
+docker pull ${IMAGE_TAG} || true
 docker build -t ${IMAGE_TAG} .
 IMAGE_HASH=$(docker images | grep ${IMAGE_NAME} | head -n 1 | awk '{ print $3; }')
 echo "Testing image: ${IMAGE_HASH}"
