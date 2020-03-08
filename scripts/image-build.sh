@@ -6,8 +6,8 @@ docker build -t ${IMAGE_TAG} .
 IMAGE_HASH=$(docker images | grep ${IMAGE_NAME} | head -n 1 | awk '{ print $3; }')
 echo "Testing image: ${IMAGE_HASH}"
 
-docker run --rm -v $(pwd):/tests:ro --entrypoint /usr/local/bin/goss
-${IMAGE_HASH} --gossfile /tests/Gossfile.yml validate
+docker run --rm -v $(pwd):/tests:ro --entrypoint /usr/local/bin/goss ${IMAGE_HASH} \
+  --gossfile /tests/Gossfile.yml validate
 docker push ${IMAGE_TAG}
 
 if [[ "${CI_COMMIT_REF_SLUG}" == "master" ]];

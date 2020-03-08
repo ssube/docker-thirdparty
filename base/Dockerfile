@@ -2,7 +2,7 @@ FROM ubuntu:bionic
 
 # install main packages and clean up
 RUN apt-get -qq update \
- && apt-get install -y build-essential ca-certificates curl dnsutils git gnupg2 jq openssh-client python-dev ssh telnet unzip wget zip \
+ && apt-get install -y build-essential ca-certificates curl dnsutils git gnupg2 jq openssh-client python3-dev ssh telnet unzip wget zip \
  && apt-get remove -y python-pip \
  && apt-get clean -y \
  && apt-get autoclean -y \
