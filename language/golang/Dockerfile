@@ -1,6 +1,6 @@
 FROM apextoaster/base:1.2-master
 
-ENV GO_VERSION 1.10.2
+ENV GO_VERSION 1.14
 ENV GOPATH /usr/local/go
 
 # install golang
@@ -9,6 +9,3 @@ RUN mkdir -pv ${GOPATH}/bin ${GOPATH}/src \
  && tar -C /usr/local -xzf golang.tar.gz
 
 ENV PATH "/usr/local/go/bin:${PATH}"
-
-# install dep
-RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
