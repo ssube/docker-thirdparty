@@ -1,4 +1,4 @@
-FROM apextoaster/base:1.2-master
+FROM apextoaster/base:1.3-master
 
 ENV TF_VERSION 0.11.2
 

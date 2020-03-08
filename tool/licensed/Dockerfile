@@ -1,4 +1,4 @@
-FROM apextoaster/base:1.2-master
+FROM apextoaster/base:1.3-master
 
 ENV LICENSED_VERSION 1.5.2
 
