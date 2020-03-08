@@ -62,7 +62,7 @@ image:node:
   variables:
     IMAGE_ROOT: language/node
     IMAGE_NAME: apextoaster/node
-    IMAGE_VERSION: "12.15"
+    IMAGE_VERSION: "12.16"
 
 image:python3:
   <<: *build-image
