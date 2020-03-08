@@ -1,5 +1,7 @@
 #! /bin/sh
 
+set -euxo pipefail
+
 cd ${IMAGE_ROOT}
 export IMAGE_TAG="${IMAGE_NAME}:${IMAGE_VERSION}-${CI_COMMIT_REF_SLUG}"
 docker build -t ${IMAGE_TAG} .
