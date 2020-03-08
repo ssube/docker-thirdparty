@@ -38,7 +38,7 @@ command:
   "kubectl version --client":
     exit-status: 0
     stdout:
-      - "v1.11.3"
+      - "v1.16.7"
 
 # blackbox (doesn't provide any good test commands)
   "which blackbox_diff":
