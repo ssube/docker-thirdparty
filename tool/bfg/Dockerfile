@@ -7,6 +7,6 @@ RUN apt update -qq \
 
 # install dep
 ENV BFG_VERSION 1.13.0
-RUN curl http://repo1.maven.org/maven2/com/madgag/bfg/${BFG_VERSION}/bfg-${BFG_VERSION}.jar -o /usr/bin/bfg.jar
+RUN curl https://repo1.maven.org/maven2/com/madgag/bfg/${BFG_VERSION}/bfg-${BFG_VERSION}.jar -o /usr/bin/bfg.jar
 
 CMD ["java", "-jar", "/usr/bin/bfg.jar"]
