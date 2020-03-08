@@ -22,21 +22,8 @@ variables:
     - mkdir ${HOME}/.docker
     - echo "${DOCKER_SECRET}" | base64 -d > ${HOME}/.docker/config.json
     - docker info
-  script: # todo: move this into a real script
-    - cd ${IMAGE_ROOT}
-    - export IMAGE_TAG=${IMAGE_NAME}:${IMAGE_VERSION}-${CI_COMMIT_REF_SLUG}
-    - docker build -t ${IMAGE_TAG} .
-    - IMAGE_HASH=$(docker images | grep ${IMAGE_NAME} | head -n 1 | awk '{ print $3; }')
-    - 'echo "Testing image: ${IMAGE_HASH}"'
-    - >-
-      docker run --rm -v $(pwd):/tests:ro --entrypoint /usr/local/bin/goss
-      ${IMAGE_HASH} --gossfile /tests/Gossfile.yml validate
-    - docker push ${IMAGE_TAG}
-    - >-
-      if [[ "${CI_COMMIT_REF_SLUG}" == "master" ]]; then
-      docker tag ${IMAGE_TAG} ${IMAGE_NAME}:${IMAGE_VERSION};
-      docker push ${IMAGE_NAME}:${IMAGE_VERSION};
-      fi
+  script:
+    - ./scripts/image-build.sh
   after_script:
     - rm -rfv ${HOME}/.docker
 
@@ -61,7 +48,7 @@ image:golang:
       - .gitlab-ci.yml
       - language/golang/Dockerfile
   variables:
-    IMAGE_ROOT: golang
+    IMAGE_ROOT: language/golang
     IMAGE_NAME: apextoaster/golang
     IMAGE_VERSION: "1.10"
 
@@ -73,7 +60,7 @@ image:node:
       - .gitlab-ci.yml
       - language/node/Dockerfile
   variables:
-    IMAGE_ROOT: node
+    IMAGE_ROOT: language/node
     IMAGE_NAME: apextoaster/node
     IMAGE_VERSION: "11.15"
 
@@ -85,7 +72,7 @@ image:python3:
       - .gitlab-ci.yml
       - language/python3/Dockerfile
   variables:
-    IMAGE_ROOT: python3
+    IMAGE_ROOT: language/python3
     IMAGE_NAME: apextoaster/python3
     IMAGE_VERSION: "3.6"
 
@@ -98,7 +85,7 @@ image:ansible:
       - .gitlab-ci.yml
       - tool/ansible/Dockerfile
   variables:
-    IMAGE_ROOT: ansible
+    IMAGE_ROOT: tool/ansible
     IMAGE_NAME: apextoaster/ansible
     IMAGE_VERSION: "2.6"
 
@@ -110,7 +97,7 @@ image:bfg:
       - .gitlab-ci.yml
       - tool/bfg/Dockerfile
   variables:
-    IMAGE_ROOT: bfg
+    IMAGE_ROOT: tool/bfg
     IMAGE_NAME: apextoaster/bfg
     IMAGE_VERSION: "1.13"
 
@@ -122,7 +109,7 @@ image:code-climate:
       - .gitlab-ci.yml
       - tool/code-climate/Dockerfile
   variables:
-    IMAGE_ROOT: code-climate
+    IMAGE_ROOT: tool/code-climate
     IMAGE_NAME: apextoaster/code-climate
     IMAGE_VERSION: "0.6"
 
@@ -134,7 +121,7 @@ image:codecov:
       - .gitlab-ci.yml
       - tool/codecov/Dockerfile
   variables:
-    IMAGE_ROOT: codecov
+    IMAGE_ROOT: tool/codecov
     IMAGE_NAME: apextoaster/codecov
     IMAGE_VERSION: "3.1"
 
@@ -146,7 +133,7 @@ image:docker:
       - .gitlab-ci.yml
       - tool/docker/Dockerfile
   variables:
-    IMAGE_ROOT: docker
+    IMAGE_ROOT: tool/docker
     IMAGE_NAME: apextoaster/docker
     IMAGE_VERSION: "18.09"
 
@@ -158,7 +145,7 @@ image:hugo:
       - .gitlab-ci.yml
       - tool/hugo/Dockerfile
   variables:
-    IMAGE_ROOT: hugo
+    IMAGE_ROOT: tool/hugo
     IMAGE_NAME: apextoaster/hugo
     IMAGE_VERSION: "0.58"
 
@@ -170,7 +157,7 @@ image:licensed:
       - .gitlab-ci.yml
       - tool/licensed/Dockerfile
   variables:
-    IMAGE_ROOT: licensed
+    IMAGE_ROOT: tool/licensed
     IMAGE_NAME: apextoaster/licensed
     IMAGE_VERSION: "1.5.2"
 
@@ -182,7 +169,7 @@ image:rclone:
       - .gitlab-ci.yml
       - tool/rclone/Dockerfile
   variables:
-    IMAGE_ROOT: rclone
+    IMAGE_ROOT: tool/rclone
     IMAGE_NAME: apextoaster/rclone
     IMAGE_VERSION: "1.39"
 
@@ -194,7 +181,7 @@ image:shellcheck:
       - .gitlab-ci.yml
       - tool/shellcheck/Dockerfile
   variables:
-    IMAGE_ROOT: shellcheck
+    IMAGE_ROOT: tool/shellcheck
     IMAGE_NAME: apextoaster/shellcheck
     IMAGE_VERSION: "0.4"
 
@@ -206,7 +193,7 @@ image:sonar-scanner:
       - .gitlab-ci.yml
       - tool/sonar-scanner/Dockerfile
   variables:
-    IMAGE_ROOT: sonar-scanner
+    IMAGE_ROOT: tool/sonar-scanner
     IMAGE_NAME: apextoaster/sonar-scanner
     IMAGE_VERSION: "3.3"
 
@@ -218,7 +205,7 @@ image:terraform:
       - .gitlab-ci.yml
       - tool/terraform/Dockerfile
   variables:
-    IMAGE_ROOT: terraform
+    IMAGE_ROOT: tool/terraform
     IMAGE_NAME: apextoaster/terraform
     IMAGE_VERSION: "0.11"
 
@@ -231,7 +218,7 @@ image:docker-dind:
       - .gitlab-ci.yml
       - service/docker-dind/Dockerfile
   variables:
-    IMAGE_ROOT: docker-dind
+    IMAGE_ROOT: service/docker-dind
     IMAGE_NAME: apextoaster/docker-dind
     IMAGE_VERSION: "18.09"
 
@@ -243,6 +230,6 @@ image:nexus:
       - .gitlab-ci.yml
       - service/nexus/Dockerfile
   variables:
-    IMAGE_ROOT: nexus
+    IMAGE_ROOT: service/nexus
     IMAGE_NAME: apextoaster/nexus
     IMAGE_VERSION: "3.13"
