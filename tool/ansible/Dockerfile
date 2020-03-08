@@ -1,4 +1,4 @@
-FROM apextoaster/base:1.2-master
+FROM apextoaster/base:1.3-master
 
 RUN apt-get -qq update \
  && apt-get install -y software-properties-common \
@@ -7,4 +7,4 @@ RUN apt-get -qq update \
  && apt-get install -y build-essential libssl-dev libffi-dev openssh-client python-dev python-pip \
  && rm -rf /var/lib/apt/lists/*
 
-RUN pip install "ansible~=2.6.0"
+RUN pip install "ansible~=2.7.0"

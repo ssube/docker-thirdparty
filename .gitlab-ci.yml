@@ -37,7 +37,7 @@ image:base:
   variables:
     IMAGE_ROOT: base
     IMAGE_NAME: apextoaster/base
-    IMAGE_VERSION: "1.2"
+    IMAGE_VERSION: "1.3"
 
 # language images
 image:golang:
@@ -50,7 +50,7 @@ image:golang:
   variables:
     IMAGE_ROOT: language/golang
     IMAGE_NAME: apextoaster/golang
-    IMAGE_VERSION: "1.10"
+    IMAGE_VERSION: "1.14"
 
 image:node:
   <<: *build-image
@@ -62,7 +62,7 @@ image:node:
   variables:
     IMAGE_ROOT: language/node
     IMAGE_NAME: apextoaster/node
-    IMAGE_VERSION: "11.15"
+    IMAGE_VERSION: "12.15"
 
 image:python3:
   <<: *build-image
@@ -74,7 +74,7 @@ image:python3:
   variables:
     IMAGE_ROOT: language/python3
     IMAGE_NAME: apextoaster/python3
-    IMAGE_VERSION: "3.6"
+    IMAGE_VERSION: "3.7"
 
 # tool images
 image:ansible:
@@ -87,7 +87,7 @@ image:ansible:
   variables:
     IMAGE_ROOT: tool/ansible
     IMAGE_NAME: apextoaster/ansible
-    IMAGE_VERSION: "2.6"
+    IMAGE_VERSION: "2.7"
 
 image:bfg:
   <<: *build-image
@@ -232,4 +232,4 @@ image:nexus:
   variables:
     IMAGE_ROOT: service/nexus
     IMAGE_NAME: apextoaster/nexus
-    IMAGE_VERSION: "3.13"
+    IMAGE_VERSION: "3.19"

@@ -1,4 +1,4 @@
-FROM apextoaster/base:1.2-master
+FROM apextoaster/base:1.3-master
 
 # Download and install node
 ENV NODE_VERSION 12.x
