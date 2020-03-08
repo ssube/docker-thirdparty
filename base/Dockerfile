@@ -16,7 +16,6 @@ RUN pip install --upgrade awscli openshift yq
 
 # install k8s packages
 ENV KUBECTL_VERSION=1.16.7
-
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl \
  && mv -v kubectl /usr/local/bin/ \
  && chmod a+x /usr/local/bin/kubectl

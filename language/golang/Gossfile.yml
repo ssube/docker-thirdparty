@@ -1,16 +1,5 @@
 command:
-  dep version:
-    exit-status: 0
-    stdout:
-      - "dep:"
-      - " version     : v0.5.4"
-
   go version:
     exit-status: 0
     stdout:
-      - go version go1.10.2 linux/amd64
-
-  which dep:
-    exit-status: 0
-    stdout:
-      - /go/bin/dep
+      - go version go1.14 linux/amd64
