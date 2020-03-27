@@ -136,6 +136,10 @@ image:docker:
     IMAGE_ROOT: tool/docker
     IMAGE_NAME: apextoaster/docker
     IMAGE_VERSION: "18.09"
+  script:
+    # embed image-build script
+    - cp -rv ./scripts ./${IMAGE_ROOT}/
+    - ./scripts/image-build.sh
 
 image:hugo:
   <<: *build-image

@@ -25,3 +25,5 @@ RUN apt-get update \
 
 RUN docker -v \
  && dockerd -v
+
+COPY scripts /build-scripts
