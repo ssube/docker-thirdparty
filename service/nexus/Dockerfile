@@ -10,7 +10,7 @@ RUN apt-get update -y \
   && sed -i "s/3.19.1-01/${NEXUS_VERSION}-${NEXUS_BUILD}/g" pom.xml \
   && mvn clean package -PbuildKar;
 
-FROM sonatype/nexus3:3.21.2
+FROM sonatype/nexus3:3.22.0
 
 ARG NEXUS_VERSION=3.21.2
 ARG NEXUS_BUILD=03
