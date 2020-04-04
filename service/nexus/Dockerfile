@@ -1,7 +1,7 @@
 FROM maven:3-jdk-8 AS build
 
-ARG NEXUS_VERSION=3.21.2
-ARG NEXUS_BUILD=03
+ARG NEXUS_VERSION=3.22.0
+ARG NEXUS_BUILD=02
 
 RUN apt-get update -y \
   && apt-get install -y git \
@@ -12,8 +12,8 @@ RUN apt-get update -y \
 
 FROM sonatype/nexus3:3.22.0
 
-ARG NEXUS_VERSION=3.21.2
-ARG NEXUS_BUILD=03
+ARG NEXUS_VERSION=3.22.0
+ARG NEXUS_BUILD=02
 
 ENV RCLONE_VERSION=1.47.0
 
