@@ -30,4 +30,9 @@ RUN pip3 install --upgrade awscli
 
 COPY --from=build /nexus-repository-composer/nexus-repository-composer/target/nexus-repository-composer-*-bundle.kar /opt/sonatype/nexus/deploy/
 
+# install goss
+ENV GOSS_VERSION 0.3.5
+RUN curl -L https://github.com/aelsabbahy/goss/releases/download/v${GOSS_VERSION}/goss-linux-amd64 -o /usr/local/bin/goss \
+ && chmod +rx /usr/local/bin/goss
+
 USER nexus
