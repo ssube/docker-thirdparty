@@ -33,6 +33,8 @@ push_image "${IMAGE_TAG}"
 # push under each alt tag
 for alt_name in "${IMAGE_ALT:-}";
 do
+  [[ -z "${alt_name}" ]] && continue
+
   ALT_TAG="${alt_name}:${IMAGE_VERSION}-${CI_COMMIT_REF_SLUG}"
   docker tag ${IMAGE_TAG}
   push_image "${ALT_TAG}"
