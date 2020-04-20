@@ -36,6 +36,6 @@ do
   [[ -z "${alt_name}" ]] && continue
 
   ALT_TAG="${alt_name}:${IMAGE_VERSION}-${CI_COMMIT_REF_SLUG}"
-  docker tag ${IMAGE_TAG}
+  docker tag ${IMAGE_TAG} ${ALT_TAG}
   push_image "${ALT_TAG}"
 done
