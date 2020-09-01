@@ -1,6 +1,6 @@
-FROM apextoaster/node:10.1-master
+FROM apextoaster/node:12.18-master
 
-ENV CODECOV_VERSION=3.1.0
+ENV CODECOV_VERSION=3.7.2
 
 RUN yarn global add codecov@${CODECOV_VERSION} \
  && curl -L https://codecov.io/bash -o /usr/local/bin/codecov-bash \
