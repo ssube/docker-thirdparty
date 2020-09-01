@@ -2,5 +2,5 @@ command:
   "sonar-scanner -v":
     exit-status: 0
     stdout:
-      - "INFO: SonarQube Scanner 4.4.0.2170"
-      - "INFO: Java 1.11.0"
+      - "INFO: SonarScanner 4.4.0.2170"
+      - "INFO: Java 11.0.8"
