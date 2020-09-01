@@ -1,13 +1,13 @@
-FROM apextoaster/node:12.16-master
+FROM apextoaster/node:12.18-master
 
 # install main packages and clean up
 RUN apt-get -qq update \
- && apt-get install -y openjdk-8-jre-headless \
+ && apt-get install -y openjdk-11-jre-headless \
  && apt-get clean -y \
  && apt-get autoclean -y \
  && rm -rf /var/lib/apt/lists/*
 
-ENV SONAR_VERSION=3.3.0.1492
+ENV SONAR_VERSION=4.4.0.2170
 
 WORKDIR /sonar
 

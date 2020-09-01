@@ -123,7 +123,7 @@ image:codecov:
   variables:
     IMAGE_ROOT: tool/codecov
     IMAGE_NAME: apextoaster/codecov
-    IMAGE_VERSION: "3.1"
+    IMAGE_VERSION: "3.7"
 
 image:docker:
   <<: *build-image
@@ -199,7 +199,7 @@ image:sonar-scanner:
   variables:
     IMAGE_ROOT: tool/sonar-scanner
     IMAGE_NAME: apextoaster/sonar-scanner
-    IMAGE_VERSION: "3.3"
+    IMAGE_VERSION: "4.4"
 
 image:terraform:
   <<: *build-image
