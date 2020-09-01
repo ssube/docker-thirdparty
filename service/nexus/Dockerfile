@@ -1,6 +1,6 @@
 FROM maven:3-jdk-8 AS build
 
-ARG NEXUS_VERSION=3.25.1
+ARG NEXUS_VERSION=3.26.1
 ARG NEXUS_BUILD=02
 
 RUN apt-get update -y \
@@ -10,7 +10,7 @@ RUN apt-get update -y \
   && sed -i "s/3.19.1-01/${NEXUS_VERSION}-${NEXUS_BUILD}/g" pom.xml \
   && mvn clean package -PbuildKar;
 
-FROM sonatype/nexus3:3.25.1
+FROM sonatype/nexus3:3.26.1
 
 COPY --from=build /nexus-repository-composer/nexus-repository-composer/target/nexus-repository-composer-*-bundle.kar /opt/sonatype/nexus/deploy/
 
