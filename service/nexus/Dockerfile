@@ -1,7 +1,7 @@
 FROM maven:3-jdk-8 AS build
 
-ARG NEXUS_VERSION=3.26.1
-ARG NEXUS_BUILD=02
+ARG NEXUS_VERSION=3.27.0
+ARG NEXUS_BUILD=03
 
 RUN apt-get update -y \
   && apt-get install -y git \
