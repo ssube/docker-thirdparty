@@ -1,4 +1,4 @@
-FROM apextoaster/node:12.18-master
+FROM apextoaster/node:12.19-master
 
 # install main packages and clean up
 RUN apt-get -qq update \
