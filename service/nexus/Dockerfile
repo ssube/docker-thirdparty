@@ -1,6 +1,6 @@
 FROM maven:3-jdk-8 AS build
 
-ARG NEXUS_VERSION=3.27.0
+ARG NEXUS_VERSION=3.28.1
 ARG NEXUS_BUILD=03
 
 RUN apt-get update -y \
@@ -20,7 +20,7 @@ RUN yum update -y \
 
 RUN pip3 install --upgrade awscli
 
-ENV RCLONE_VERSION=1.47.0
+ENV RCLONE_VERSION=1.53.2
 ADD https://github.com/ncw/rclone/releases/download/v${RCLONE_VERSION}/rclone-v${RCLONE_VERSION}-linux-amd64.zip /tmp/rclone.zip
 
 RUN cd /tmp \
