@@ -62,7 +62,7 @@ image:node:
   variables:
     IMAGE_ROOT: language/node
     IMAGE_NAME: apextoaster/node
-    IMAGE_VERSION: "12.18"
+    IMAGE_VERSION: "12.19"
 
 image:python3:
   <<: *build-image
@@ -236,5 +236,5 @@ image:nexus:
   variables:
     IMAGE_ROOT: service/nexus
     IMAGE_NAME: apextoaster/nexus
-    IMAGE_VERSION: "3.27"
+    IMAGE_VERSION: "3.28"
     IMAGE_ALT: "ssube/nexus-ext"
