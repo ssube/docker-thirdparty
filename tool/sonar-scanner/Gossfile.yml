@@ -3,4 +3,4 @@ command:
     exit-status: 0
     stdout:
       - "INFO: SonarScanner 4.4.0.2170"
-      - "INFO: Java 11.0.8"
+      - "INFO: Java 11.0.9"
