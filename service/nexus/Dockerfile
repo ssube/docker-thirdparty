@@ -20,7 +20,7 @@ RUN yum update -y \
 
 RUN pip3 install --upgrade awscli
 
-ENV RCLONE_VERSION=1.53.2
+ARG RCLONE_VERSION=1.53.2
 ADD https://github.com/ncw/rclone/releases/download/v${RCLONE_VERSION}/rclone-v${RCLONE_VERSION}-linux-amd64.zip /tmp/rclone.zip
 
 RUN cd /tmp \
@@ -28,7 +28,7 @@ RUN cd /tmp \
  && mv -v /tmp/rclone-v${RCLONE_VERSION}-linux-amd64/rclone /usr/bin/rclone
 
 # install goss
-ENV GOSS_VERSION=0.3.5
+ARG GOSS_VERSION=0.3.5
 ADD https://github.com/aelsabbahy/goss/releases/download/v${GOSS_VERSION}/goss-linux-amd64 /usr/local/bin/goss
 RUN chmod +rx /usr/local/bin/goss
 
