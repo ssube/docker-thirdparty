@@ -236,5 +236,5 @@ image:nexus:
   variables:
     IMAGE_ROOT: service/nexus
     IMAGE_NAME: apextoaster/nexus
-    IMAGE_VERSION: "3.28"
+    IMAGE_VERSION: "3.29"
     IMAGE_ALT: "ssube/nexus-ext"
