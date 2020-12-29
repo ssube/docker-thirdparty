@@ -1,10 +1,10 @@
 command:
-  codecov --help:
+  codecov -h:
     exit-status: 0
     stdout:
       - "Usage: codecov"
 
-  codecov-bash --help:
+  codecov-bash -h:
     exit-status: 0
     stdout:
       - "Codecov Bash"
