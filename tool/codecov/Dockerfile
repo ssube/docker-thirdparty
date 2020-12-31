@@ -1,4 +1,4 @@
-FROM apextoaster/node:12.19-master
+FROM apextoaster/node:12.20-master
 
 ENV CODECOV_VERSION=3.7.2
 
