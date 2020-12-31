@@ -1,4 +1,4 @@
-FROM apextoaster/base:1.3-master
+FROM apextoaster/base:1.4-master
 
 ENV PYTHON_MAJOR 3
 ENV PYTHON_MINOR 7
