@@ -38,7 +38,7 @@ command:
   "kubectl version --client":
     exit-status: 0
     stdout:
-      - "v1.16.7"
+      - "v1.19.6"
 
 # blackbox (doesn't provide any good test commands)
   "which blackbox_diff":
@@ -55,13 +55,7 @@ command:
   "goss -v":
     exit-status: 0
     stdout:
-      - goss version v0.3.5
-
-# codeclimate test-reporter
-  "test-reporter -v":
-    exit-status: 0
-    stdout:
-      - "Code Climate Test Reporter 0.1.4"
+      - goss version v0.3.16
 
 # hash for tools that don't have a version
 files:

@@ -15,7 +15,7 @@ RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py \
 RUN pip install --upgrade awscli openshift yq
 
 # install k8s packages
-ENV KUBECTL_VERSION=1.16.7
+ENV KUBECTL_VERSION=1.19.6
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl \
  && mv -v kubectl /usr/local/bin/ \
  && chmod a+x /usr/local/bin/kubectl
@@ -26,14 +26,9 @@ RUN git clone https://github.com/StackExchange/blackbox.git blackbox \
  && make copy-install
 
 # install goss
-ENV GOSS_VERSION 0.3.5
+ENV GOSS_VERSION 0.3.16
 RUN curl -L https://github.com/aelsabbahy/goss/releases/download/v${GOSS_VERSION}/goss-linux-amd64 -o /usr/local/bin/goss \
  && chmod +rx /usr/local/bin/goss
-
-# install codeclimate test-reporter
-ENV TEST_VERSION 0.1.4
-RUN curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-${TEST_VERSION}-linux-amd64 -o /usr/local/bin/test-reporter \
- && chmod +rx /usr/local/bin/test-reporter
 
 # Add ssh keys
 RUN mkdir -p /root/.ssh \
