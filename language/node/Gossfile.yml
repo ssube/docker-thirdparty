@@ -2,4 +2,4 @@ command:
   "node --version":
     exit-status: 0
     stdout:
-      - "v12.22"
+      - "v16.3.0"

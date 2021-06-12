@@ -1,7 +1,7 @@
 FROM apextoaster/base:1.4-master
 
 # Download and install node
-ENV NODE_VERSION 12.x
+ENV NODE_VERSION 16.x
 
 RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION} | bash - \
  && apt-get update \
