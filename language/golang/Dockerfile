@@ -1,4 +1,4 @@
-FROM apextoaster/base:1.4-master
+FROM docker.artifacts.apextoaster.com/apextoaster/base:1.4-master
 
 ENV GO_VERSION 1.14
 ENV GOPATH /usr/local/go
