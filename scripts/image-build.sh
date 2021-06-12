@@ -6,8 +6,8 @@ cd ${IMAGE_ROOT}
 export IMAGE_TAG="${IMAGE_NAME}:${IMAGE_VERSION}-${CI_COMMIT_REF_SLUG}"
 
 # pull the previous image from the same branch or master to leverage its layers
-docker pull ${IMAGE_TAG} || \
-  docker pull "${IMAGE_NAME}:${IMAGE_VERSION}-master" || \
+docker pull docker.artifacts.apextoaster.com/${IMAGE_TAG} || \
+  docker pull docker.artifacts.apextoaster.com/"${IMAGE_NAME}:${IMAGE_VERSION}-master" || \
   true  # no existing image is not an error
 
 # build and test a new image
@@ -18,12 +18,17 @@ docker run --rm -v $(pwd):/tests:ro --entrypoint /usr/local/bin/goss ${IMAGE_TAG
 function push_image() {
   local PUSH_TAG="${1:-${IMAGE_TAG}}"
 
-  docker push ${PUSH_TAG}
+  docker push ${PUSH_TAG} || true
+  docker tag ${PUSH_TAG} docker.artifacts.apextoaster.com/${PUSH_TAG}
+  docker push docker.artifacts.apextoaster.com/${PUSH_TAG}
 
   if [[ "${CI_COMMIT_REF_SLUG}" == "master" ]];
   then
-    docker tag ${PUSH_TAG} ${IMAGE_NAME}:${IMAGE_VERSION};
-    docker push ${IMAGE_NAME}:${IMAGE_VERSION};
+    docker tag ${PUSH_TAG} ${IMAGE_NAME}:${IMAGE_VERSION}
+    docker push ${IMAGE_NAME}:${IMAGE_VERSION}
+
+    docker tag ${IMAGE_NAME}:${IMAGE_VERSION} docker.artifacts.apextoaster.com/${IMAGE_NAME}:${IMAGE_VERSION}
+    docker push docker.artifacts.apextoaster.com/${IMAGE_NAME}:${IMAGE_VERSION}
   fi
 }
 
