@@ -1,4 +1,4 @@
-FROM docker.artifacts.apextoaster.com/ubuntu:bionic
+FROM docker.artifacts.apextoaster.com/library/ubuntu:bionic
 
 # install main packages and clean up
 RUN apt-get -qq update \
