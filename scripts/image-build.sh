@@ -19,16 +19,16 @@ function push_image() {
   local PUSH_TAG="${1:-${IMAGE_TAG}}"
 
   docker push ${PUSH_TAG} || true
-  docker tag ${PUSH_TAG} docker.artifacts.apextoaster.com/${PUSH_TAG}
-  docker push docker.artifacts.apextoaster.com/${PUSH_TAG}
+  docker tag ${PUSH_TAG} docker-push.artifacts.apextoaster.com/${PUSH_TAG}
+  docker push docker-push.artifacts.apextoaster.com/${PUSH_TAG}
 
   if [[ "${CI_COMMIT_REF_SLUG}" == "master" ]];
   then
     docker tag ${PUSH_TAG} ${IMAGE_NAME}:${IMAGE_VERSION}
     docker push ${IMAGE_NAME}:${IMAGE_VERSION}
 
-    docker tag ${IMAGE_NAME}:${IMAGE_VERSION} docker.artifacts.apextoaster.com/${IMAGE_NAME}:${IMAGE_VERSION}
-    docker push docker.artifacts.apextoaster.com/${IMAGE_NAME}:${IMAGE_VERSION}
+    docker tag ${IMAGE_NAME}:${IMAGE_VERSION} docker-push.artifacts.apextoaster.com/${IMAGE_NAME}:${IMAGE_VERSION}
+    docker push docker-push.artifacts.apextoaster.com/${IMAGE_NAME}:${IMAGE_VERSION}
   fi
 }
 
