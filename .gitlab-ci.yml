@@ -37,7 +37,7 @@ image:base:
   variables:
     IMAGE_ROOT: base
     IMAGE_NAME: apextoaster/base
-    IMAGE_VERSION: "1.4"
+    IMAGE_VERSION: "1.5"
 
 # language images
 image:golang:
