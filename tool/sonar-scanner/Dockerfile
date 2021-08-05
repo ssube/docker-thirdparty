@@ -1,4 +1,4 @@
-FROM apextoaster/node:16.3-master
+FROM apextoaster/node:16.6-master
 
 # install main packages and clean up
 RUN apt-get -qq update \
