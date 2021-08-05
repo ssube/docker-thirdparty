@@ -113,18 +113,6 @@ image:code-climate:
     IMAGE_NAME: apextoaster/code-climate
     IMAGE_VERSION: "0.6"
 
-image:codecov:
-  <<: *build-image
-  stage: tool
-  only:
-    changes:
-      - .gitlab-ci.yml
-      - tool/codecov/Dockerfile
-  variables:
-    IMAGE_ROOT: tool/codecov
-    IMAGE_NAME: apextoaster/codecov
-    IMAGE_VERSION: "3.7"
-
 image:docker:
   <<: *build-image
   stage: tool
