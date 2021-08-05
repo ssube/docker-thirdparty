@@ -1,4 +1,4 @@
-FROM docker.artifacts.apextoaster.com/apextoaster/base:1.4-master
+FROM docker.artifacts.apextoaster.com/apextoaster/base:1.5-master
 
 # Download and install node
 ENV NODE_VERSION 16.x
