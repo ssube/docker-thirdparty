@@ -15,7 +15,7 @@ RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py \
 RUN pip install --upgrade awscli openshift yq
 
 # install k8s packages
-ENV KUBECTL_VERSION=1.19.6
+ENV KUBECTL_VERSION=1.20.9
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl \
  && mv -v kubectl /usr/local/bin/ \
  && chmod a+x /usr/local/bin/kubectl
