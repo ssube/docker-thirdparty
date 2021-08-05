@@ -1,4 +1,4 @@
-FROM apextoaster/base:1.4-master
+FROM apextoaster/base:1.5-master
 
 RUN apt-get -y update \
  && apt-get install shellcheck \
