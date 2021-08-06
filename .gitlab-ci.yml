@@ -5,8 +5,11 @@ stages:
   - service
 
 variables:
+  DOCKER_CERT_PATH: "/shared/docker/client"
   DOCKER_DRIVER: overlay2
+  DOCKER_HOST: tcp://localhost:2376
   DOCKER_TLS_CERTDIR: "/shared/docker"
+  DOCKER_TLS_VERIFY: 1
 
 .build-image: &build-image
   image: docker.artifacts.apextoaster.com/apextoaster/docker:20.10
