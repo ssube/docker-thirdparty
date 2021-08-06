@@ -2,8 +2,8 @@ command:
   "docker --version":
      exit-status: 0
      stdout:
-       - "18.09"
+       - "20.10"
   "dockerd --version":
      exit-status: 0
      stdout:
-       - "18.09"
+       - "20.10"
