@@ -139,7 +139,7 @@ image:hugo:
   variables:
     IMAGE_ROOT: tool/hugo
     IMAGE_NAME: apextoaster/hugo
-    IMAGE_VERSION: "0.58"
+    IMAGE_VERSION: "0.87"
 
 image:licensed:
   <<: *build-image
