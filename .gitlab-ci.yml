@@ -33,7 +33,7 @@ image:base:
   only:
     changes:
       - .gitlab-ci.yml
-      - base/Dockerfile
+      - base/*
   variables:
     IMAGE_ROOT: base
     IMAGE_NAME: apextoaster/base
@@ -46,7 +46,7 @@ image:golang:
   only:
     changes:
       - .gitlab-ci.yml
-      - language/golang/Dockerfile
+      - language/golang/*
   variables:
     IMAGE_ROOT: language/golang
     IMAGE_NAME: apextoaster/golang
@@ -58,7 +58,7 @@ image:node:
   only:
     changes:
       - .gitlab-ci.yml
-      - language/node/Dockerfile
+      - language/node/*
   variables:
     IMAGE_ROOT: language/node
     IMAGE_NAME: apextoaster/node
@@ -70,7 +70,7 @@ image:python3:
   only:
     changes:
       - .gitlab-ci.yml
-      - language/python3/Dockerfile
+      - language/python3/*
   variables:
     IMAGE_ROOT: language/python3
     IMAGE_NAME: apextoaster/python3
@@ -83,7 +83,7 @@ image:ansible:
   only:
     changes:
       - .gitlab-ci.yml
-      - tool/ansible/Dockerfile
+      - tool/ansible/*
   variables:
     IMAGE_ROOT: tool/ansible
     IMAGE_NAME: apextoaster/ansible
@@ -95,7 +95,7 @@ image:bfg:
   only:
     changes:
       - .gitlab-ci.yml
-      - tool/bfg/Dockerfile
+      - tool/bfg/*
   variables:
     IMAGE_ROOT: tool/bfg
     IMAGE_NAME: apextoaster/bfg
@@ -107,7 +107,7 @@ image:code-climate:
   only:
     changes:
       - .gitlab-ci.yml
-      - tool/code-climate/Dockerfile
+      - tool/code-climate/*
   variables:
     IMAGE_ROOT: tool/code-climate
     IMAGE_NAME: apextoaster/code-climate
@@ -119,11 +119,11 @@ image:docker:
   only:
     changes:
       - .gitlab-ci.yml
-      - tool/docker/Dockerfile
+      - tool/docker/*
   variables:
     IMAGE_ROOT: tool/docker
     IMAGE_NAME: apextoaster/docker
-    IMAGE_VERSION: "18.09"
+    IMAGE_VERSION: "20.10"
   script:
     # embed image-build script
     - cp -rv ./scripts ./${IMAGE_ROOT}/
@@ -135,7 +135,7 @@ image:hugo:
   only:
     changes:
       - .gitlab-ci.yml
-      - tool/hugo/Dockerfile
+      - tool/hugo/*
   variables:
     IMAGE_ROOT: tool/hugo
     IMAGE_NAME: apextoaster/hugo
@@ -147,7 +147,7 @@ image:licensed:
   only:
     changes:
       - .gitlab-ci.yml
-      - tool/licensed/Dockerfile
+      - tool/licensed/*
   variables:
     IMAGE_ROOT: tool/licensed
     IMAGE_NAME: apextoaster/licensed
@@ -159,7 +159,7 @@ image:rclone:
   only:
     changes:
       - .gitlab-ci.yml
-      - tool/rclone/Dockerfile
+      - tool/rclone/*
   variables:
     IMAGE_ROOT: tool/rclone
     IMAGE_NAME: apextoaster/rclone
@@ -171,7 +171,7 @@ image:shellcheck:
   only:
     changes:
       - .gitlab-ci.yml
-      - tool/shellcheck/Dockerfile
+      - tool/shellcheck/*
   variables:
     IMAGE_ROOT: tool/shellcheck
     IMAGE_NAME: apextoaster/shellcheck
@@ -183,7 +183,7 @@ image:sonar-scanner:
   only:
     changes:
       - .gitlab-ci.yml
-      - tool/sonar-scanner/Dockerfile
+      - tool/sonar-scanner/*
   variables:
     IMAGE_ROOT: tool/sonar-scanner
     IMAGE_NAME: apextoaster/sonar-scanner
@@ -195,7 +195,7 @@ image:terraform:
   only:
     changes:
       - .gitlab-ci.yml
-      - tool/terraform/Dockerfile
+      - tool/terraform/*
   variables:
     IMAGE_ROOT: tool/terraform
     IMAGE_NAME: apextoaster/terraform
@@ -208,11 +208,11 @@ image:docker-dind:
   only:
     changes:
       - .gitlab-ci.yml
-      - service/docker-dind/Dockerfile
+      - service/docker-dind/*
   variables:
     IMAGE_ROOT: service/docker-dind
     IMAGE_NAME: apextoaster/docker-dind
-    IMAGE_VERSION: "18.09"
+    IMAGE_VERSION: "20.10"
 
 image:nexus:
   <<: *build-image
@@ -220,9 +220,9 @@ image:nexus:
   only:
     changes:
       - .gitlab-ci.yml
-      - service/nexus/Dockerfile
+      - service/nexus/*
   variables:
     IMAGE_ROOT: service/nexus
     IMAGE_NAME: apextoaster/nexus
-    IMAGE_VERSION: "3.30"
+    IMAGE_VERSION: "3.33"
     IMAGE_ALT: "ssube/nexus-ext"
