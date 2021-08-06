@@ -1,4 +1,4 @@
-FROM apextoaster/base:1.4-master
+FROM docker.artifacts.apextoaster.com/apextoaster/base:1.4-master
 
 ENV RCLONE_VERSION=1.39
 

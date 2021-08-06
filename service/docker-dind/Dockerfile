@@ -1,4 +1,4 @@
-FROM apextoaster/docker:18.09-master
+FROM docker.artifacts.apextoaster.com/apextoaster/docker:18.09-master
 
 ENV DIND_COMMIT 37498f009d8bf25fbb6199e8ccd34bed84f2874b
 RUN set -eux; \

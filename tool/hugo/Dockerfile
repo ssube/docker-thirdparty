@@ -1,4 +1,4 @@
-FROM apextoaster/node:16.3-master
+FROM docker.artifacts.apextoaster.com/apextoaster/node:16.3-master
 
 RUN apt-get -qq update \
  && apt install -y build-essential ca-certificates curl git openssh-client python-pygments \

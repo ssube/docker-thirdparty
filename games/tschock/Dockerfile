@@ -1,4 +1,4 @@
-FROM apextoaster/base:master
+FROM docker.artifacts.apextoaster.com/apextoaster/base:master
 
 ENV TSHOCK_VERSION 4.3.25
 

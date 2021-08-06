@@ -1,4 +1,4 @@
-FROM apextoaster/base:1.4-master
+FROM docker.artifacts.apextoaster.com/apextoaster/base:1.4-master
 
 ENV TF_VERSION 0.11.14
 
