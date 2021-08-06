@@ -2,7 +2,7 @@ FROM docker.artifacts.apextoaster.com/apextoaster/base:1.4-master
 
 # docker itself
 ARG DOCKER_CHANNEL=stable
-ARG DOCKER_VERSION=18.09.9
+ARG DOCKER_VERSION=20.10.8
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
