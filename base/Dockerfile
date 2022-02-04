@@ -9,7 +9,7 @@ RUN apt-get -qq update \
  && rm -rf /var/lib/apt/lists/*
 
 # install pip packages
-RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py \
+RUN curl https://bootstrap.pypa.io/pip/3.6/get-pip.py -o get-pip.py \
  && python3 get-pip.py \
  && pip install --upgrade pip
 RUN pip install --upgrade awscli openshift yq
