@@ -1,4 +1,4 @@
-FROM docker.artifacts.apextoaster.com/apextoaster/node:16.6-master
+FROM docker.artifacts.apextoaster.com/apextoaster/node:16.14-master
 
 # install main packages and clean up
 RUN apt-get -qq update \
