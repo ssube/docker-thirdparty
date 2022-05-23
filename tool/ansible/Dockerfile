@@ -1,4 +1,4 @@
-FROM docker.artifacts.apextoaster.com/apextoaster/base:1.4-master
+FROM docker.artifacts.apextoaster.com/apextoaster/base:1.5-master
 
 RUN apt-get -qq update \
  && apt-get install -y software-properties-common \
