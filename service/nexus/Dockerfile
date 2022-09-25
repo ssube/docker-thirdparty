@@ -1,4 +1,4 @@
-FROM docker.artifacts.apextoaster.com/sonatype/nexus3:3.38.1
+FROM docker.artifacts.apextoaster.com/sonatype/nexus3:3.41.1
 
 USER root
 RUN yum update -y \
