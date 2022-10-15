@@ -1,8 +1,9 @@
 FROM docker.artifacts.apextoaster.com/sonatype/nexus3:3.41.1
 
 USER root
-RUN yum update -y \
- && yum install -y ca-certificates python3-pip unzip
+RUN microdnf update -y \
+ && microdnf install -y ca-certificates python3-pip unzip \
+ && microdnf clean all
 
 RUN pip3 install --upgrade awscli
 
