@@ -19,7 +19,7 @@ RUN wget -qO - https://dl.winehq.org/wine-builds/winehq.key | apt-key add - \
  && apt-get update -y \
  && apt-get install -y --install-recommends winehq-stable
 
-ENV CONAN_VERSION "10.03.2020"
+ENV CONAN_VERSION "12.03.2022"
 RUN cd /usr/games \
  && ./steamcmd +@sSteamCmdForcePlatformType windows +login anonymous +force_install_dir /home/conanserver/server +app_update 443030 +exit
 
