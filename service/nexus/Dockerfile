@@ -1,4 +1,4 @@
-FROM docker.artifacts.apextoaster.com/sonatype/nexus3:3.46.0
+FROM docker.artifacts.apextoaster.com/sonatype/nexus3:3.66.0
 
 USER root
 RUN microdnf update -y \
