@@ -1,4 +1,4 @@
-FROM docker.artifacts.apextoaster.com/library/ubuntu:bionic
+FROM docker.artifacts.apextoaster.com/library/ubuntu:noble
 
 RUN adduser conanserver \
  && dpkg --add-architecture i386 \

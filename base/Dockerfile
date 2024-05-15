@@ -1,4 +1,4 @@
-FROM docker.artifacts.apextoaster.com/library/ubuntu:bionic
+FROM docker.artifacts.apextoaster.com/library/ubuntu:noble
 
 # install main packages and clean up
 RUN apt-get -qq update \
